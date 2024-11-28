@@ -19,6 +19,7 @@
 @dragDrop
 Feature: demo of drag and drop
 
+  @Tetsing1
   Scenario: darg and drop
     Given user open the demQA website
     When user perfrom action of drag and drop
