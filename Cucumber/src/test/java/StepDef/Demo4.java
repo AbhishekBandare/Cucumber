@@ -2,10 +2,15 @@ package StepDef;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -32,7 +37,7 @@ public class Demo4 {
 	}
 
 	@When("user enter the username {string} and password {string}")
-	public void user_enter_the_username_and_password(String user, String pass) {
+	public void user_enter_the_username_and_password(String user, String pass) throws IOException {
 	    // Write code here that turns the phrase above into concrete actions
 		driver.findElement(By.xpath("//span[@class=\"glyphicon glyphicon-log-in\"]")).click();
 		driver.findElement(By.id("usernameLogin")).sendKeys(user);
@@ -41,6 +46,11 @@ public class Demo4 {
 		if (driver.getCurrentUrl().equals("http://10.82.180.36:81/Automation/PackAndGo_v2/dashboard.html")) {
 			
 			System.out.println("Login successfuly :" +user +pass);
+			
+			//Screenshot example demo 
+			File screenShotFile=( ( TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(screenShotFile, new File(".//screenshot//ss.png"));
+			
 			driver.findElement(By.xpath("//span[@class=\"glyphicon glyphicon-log-out\"]")).click();
 			
 		} else {

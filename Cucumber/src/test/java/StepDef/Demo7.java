@@ -2,6 +2,7 @@ package StepDef;
 
 import static org.junit.Assert.*;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
@@ -12,6 +13,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -47,8 +51,9 @@ public class Demo7 {
 		Actions a=new Actions(driver);
 		a.dragAndDropBy(slider, 100, 0).perform();
 		Thread.sleep(3000);
-		a.dragAndDropBy(slider, -100, 0).perform();
+		a.dragAndDropBy(slider, -50, 0).perform();
 		Thread.sleep(3000);
+		
 	}
 
 	@Then("close the broswer")
