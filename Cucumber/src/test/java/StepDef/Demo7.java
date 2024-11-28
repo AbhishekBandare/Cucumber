@@ -39,13 +39,16 @@ public class Demo7 {
 	}
 
 	@When("user perform the slider action")
-	public void user_perform_the_slider_action() {
+	public void user_perform_the_slider_action() throws Exception {
 	    // Write code here that turns the phrase above into concrete actions
 		//keybroad actiond demo
 		driver.findElement(By.name("q")).sendKeys("Vivo" +Keys.ENTER);
 		WebElement slider=driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[3]/div/div[1]/div/div[1]/div/section[2]/div[3]/div[1]/div[1]/div"));
 		Actions a=new Actions(driver);
-		a.dragAndDropBy(slider, 50, 0).perform();
+		a.dragAndDropBy(slider, 100, 0).perform();
+		Thread.sleep(3000);
+		a.dragAndDropBy(slider, -100, 0).perform();
+		Thread.sleep(3000);
 	}
 
 	@Then("close the broswer")
