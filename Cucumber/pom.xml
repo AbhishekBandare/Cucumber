@@ -7,6 +7,7 @@
   
   <properties>
   <selenium.java>4.1.2</selenium.java>
+  <rest.assured>5.5.0</rest.assured>
   </properties>
   
   
@@ -70,6 +71,8 @@
     <version>4.13.2</version>
     <scope>test</scope>
 </dependency>
+
+
 
   
   </dependencies>
